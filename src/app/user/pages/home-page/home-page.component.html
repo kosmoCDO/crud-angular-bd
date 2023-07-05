@@ -1,0 +1,22 @@
+<div>
+    <!-- Header -->
+    <shared-header></shared-header>
+
+    <div class="btn-agg">
+        <button 
+            mat-fab color="primary" 
+            aria-label="Example icon button with a delete icon"
+            (click)="onUser({ user: null, event: 'new' })">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+    <!-- Listado de usuarios -->
+        <user-list-users 
+            [listUsers]="listUsers"
+            (eventDelete)="onDeleteUserById($event)"
+            (eventUpdate)="onUser($event)"
+            ></user-list-users>
+    
+
+        
+</div>

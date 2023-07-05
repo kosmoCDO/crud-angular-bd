@@ -1,0 +1,21 @@
+<div mat-dialog-content class="modal">
+    <h1 mat-dialog-title>Eliminar Usuario <strong>{{ data }}</strong></h1>
+    <p>Confirmar contraseña para eliminar</p>
+
+    <input matInput #password>
+
+    <div mat-dialog-actions>
+        <button 
+        mat-raised-button 
+        color="primary" 
+        mat-dialog-close="true"
+        (click)="onAccept()"
+        >Aceptar</button>
+    
+        <button 
+        mat-raised-button 
+        color="primary" 
+        (click)="onCloseModal()"
+        >Cancelar</button>
+    </div>
+</div>
