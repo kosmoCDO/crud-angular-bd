@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../../components/modal/modal.component';
 import { ModalConfirmComponent } from 'src/app/shared/modal-confirm/modal-confirm.component';
 import { UserService } from '../../services/user.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   templateUrl: './home-page.component.html',
@@ -15,7 +16,7 @@ export class HomePageComponent implements OnInit {
   constructor( 
     private userService: UserService,
     private dialog: MatDialog,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {

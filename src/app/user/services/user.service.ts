@@ -1,24 +1,34 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { DataApi, User } from '../interfaces/user.interface';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  baseUrl = 'http://kosmetikon.myqnapcloud.com:8769';
-// pedir al Equipo de backend la URL de la nube
+  baseUrl = 'http://kosmetikon.myqnapcloud.com:44444';
 
   constructor(
     private http: HttpClient,
+    private cookie: CookieService
   ) {}
-  
+
   //Peticiones
 
   public getUserList(): Observable<any> {
-    return this.http.get<DataApi>(`${this.baseUrl}/getUserList`)
+  //   const cookie = this.cookie.get('access_token');
+  //   // console.log( cookie );
+  //   // const header = new HttpHeaders().set('Set-Cookie', `access_token=${cookie}`);
+
+    return this.http.get<DataApi>(`${this.baseUrl}/getUserList`,
+    { 
+      // headers: { "Cookie":`access_token=${cookie.toString()}` },
+      withCredentials: true,
+    }
+    )
   }
 
   newUser(data: User): Observable<any> {

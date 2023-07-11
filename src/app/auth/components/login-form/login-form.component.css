@@ -1,0 +1,22 @@
+.login-form-container {
+    height: 70%;
+    margin-top: 7px;
+}
+
+.login-form-container .title {
+    margin: 15px 0 15px 0;
+}
+
+.login-form-field-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-card-footer {
+    margin-top: 50px;
+    
+}
+.form-card-footer > p {
+    line-height: 0;
+}

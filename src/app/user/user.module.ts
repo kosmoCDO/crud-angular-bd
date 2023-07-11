@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { UserRoutingModule } from './user-routing.module';
 
 import { UserService } from './services/user.service';
+import { AuthService } from '../auth/services/auth.service';
 
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
@@ -44,11 +45,13 @@ import {MatTableModule} from '@angular/material/table';
         ReactiveFormsModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        MatIconModule
+        MatIconModule,
+        HttpClientModule
     ],
     exports: [],
     providers: [
-      UserService
+      UserService,
+      AuthService
     ],
 })
 export class UserModule { }

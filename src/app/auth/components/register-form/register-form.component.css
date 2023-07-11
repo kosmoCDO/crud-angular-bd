@@ -1,0 +1,23 @@
+.register-form-container {
+    height: auto;
+    margin-top: 7px;
+}
+
+.register-form-container .title {
+    margin: 15px 0 15px 0;
+}
+
+.register-form-field-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3px;
+}
+
+.form-card-footer {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    
+}
+.form-card-footer > p {
+    line-height: 0;
+}

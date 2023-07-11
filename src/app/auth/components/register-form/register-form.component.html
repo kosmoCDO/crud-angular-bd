@@ -1,0 +1,89 @@
+<mat-card class="register-form-container">
+    <mat-card-title class="title">{{ title }}</mat-card-title>
+
+    <mat-card-content class="register-form-content">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form">
+            <div class="register-form-field-container">
+                <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                  <input 
+                    type="text" 
+                    matInput 
+                    placeholder="Antonio" 
+                    formControlName="NOMBRE"/>
+                    <mat-error>{{ getTextError('NOMBRE') }}</mat-error>
+                </mat-form-field>
+            </div>    
+            <div class="register-form-field-container">
+                <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                  <input 
+                    type="text" 
+                    matInput 
+                    placeholder="de la hoz" 
+                    formControlName="APELLIDO"/>
+                    <mat-error>{{ getTextError('APELLIDO') }}</mat-error>
+                </mat-form-field>
+            </div>    
+            <div class="register-form-field-container">
+                <mat-form-field>
+                <mat-label>Fecha de nacimiento</mat-label>
+                  <input 
+                    type="text" 
+                    matInput 
+                    placeholder="2003-09-03" 
+                    formControlName="FECHA_NACIMIENTO"/>
+                    <mat-error>{{ getTextError('FECHA_NACIMIENTO') }}</mat-error>
+                </mat-form-field>
+            </div>    
+            <div class="register-form-field-container">
+                <mat-form-field>
+                <mat-label>Cargo</mat-label>
+                  <input 
+                    type="text" 
+                    matInput 
+                    placeholder="Administrador" 
+                    formControlName="CARGO"/>
+                    <mat-error>{{ getTextError('CARGO') }}</mat-error>
+                </mat-form-field>
+            </div>    
+            <div class="register-form-field-container">
+                <mat-form-field>
+                <mat-label>Correo electronico</mat-label>
+                  <input 
+                    type="text" 
+                    matInput 
+                    placeholder="micorreo@correo.com" 
+                    formControlName="EMAIL"/>
+                    <mat-error>{{ getTextError('EMAIL') }}</mat-error>
+                </mat-form-field>
+            </div>    
+            <div class="register-form-field-container">
+                <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                  <input 
+                    type="password" 
+                    matInput 
+                    placeholder="*******" 
+                    formControlName="PASSWORD"/>
+                    <mat-error>{{ getTextError('PASSWORD') }}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-btn">
+                <button 
+                    type="submit"
+                    mat-flat-button 
+                    [disabled]="myForm.invalid"
+                    color="primary">Registrarme</button>
+            </div>
+        </form>
+
+        
+    </mat-card-content>
+    
+    <div class="form-card-footer">
+        <p><strong>Ya tienes cuenta?</strong></p>
+        <a routerLink="auth">Iniciar sesión</a>
+    </div>
+
+</mat-card>

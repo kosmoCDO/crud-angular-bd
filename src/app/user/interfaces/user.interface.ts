@@ -1,10 +1,10 @@
 
 export interface User {
-    APELLIDO: string ,
-    CARGO: string,
+    APELLIDO?: string ,
+    CARGO?: string,
     EMAIL: string,
-    FECHA_NACIMIENTO: string,
-    NOMBRE: string,
+    FECHA_NACIMIENTO?: string,
+    NOMBRE?: string,
     PASSWORD: string,
 }
 

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { AuthService } from './auth/services/auth.service';
+import { UserStatus } from './auth/interfaces/auth.interface';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'crud';
+
+  constructor(private authService: AuthService ) {}
+
 }
