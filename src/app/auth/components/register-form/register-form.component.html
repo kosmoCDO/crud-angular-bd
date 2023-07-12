@@ -29,24 +29,32 @@
                 <mat-form-field>
                 <mat-label>Fecha de nacimiento</mat-label>
                   <input 
-                    type="text" 
                     matInput 
-                    placeholder="2003-09-03" 
+                    [matDatepicker]="picker"
                     formControlName="FECHA_NACIMIENTO"/>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
                     <mat-error>{{ getTextError('FECHA_NACIMIENTO') }}</mat-error>
                 </mat-form-field>
             </div>    
             <div class="register-form-field-container">
-                <mat-form-field>
-                <mat-label>Cargo</mat-label>
-                  <input 
-                    type="text" 
-                    matInput 
-                    placeholder="Administrador" 
-                    formControlName="CARGO"/>
-                    <mat-error>{{ getTextError('CARGO') }}</mat-error>
+                <mat-form-field class="example-full-width" *ngIf="dataLoaded">
+                    <mat-label>Cargo</mat-label>
+                    <input 
+                        type="text" 
+                        matInput 
+                        formControlName="CARGO" 
+                        [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                        <!-- <mat-option>Elija un cargo:</mat-option> -->
+                    <mat-option *ngFor="let option of filtersItemsCargo | async " [value]="option">
+                        {{option.CARGO}}
+                    </mat-option>
+                    </mat-autocomplete>
                 </mat-form-field>
-            </div>    
+            </div> 
+               
             <div class="register-form-field-container">
                 <mat-form-field>
                 <mat-label>Correo electronico</mat-label>

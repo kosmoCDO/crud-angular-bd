@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { UserStatus } from '../../interfaces/auth.interface';
+import { formatearFecha } from '../../helpers/formatear-fecha';
 
 @Component({
   selector: 'auth-register-page',
@@ -32,8 +33,16 @@ export class RegisterPageComponent {
   }
 
   public onRegister( user: User ):void {
-    console.log( user );
-    this.authService.newUser( user  )
+    const newUserData = {
+      NOMBRE: user.NOMBRE,
+      APELLIDO: user.APELLIDO,
+      FECHA_NACIMIENTO: formatearFecha( user.FECHA_NACIMIENTO! ),
+      ID_CARGO: user.CARGO?.ID_CARGO,
+      EMAIL: user.EMAIL,
+      PASSWORD: user.PASSWORD
+    }
+    
+    this.authService.newUser( newUserData  )
     .subscribe( this.observer )
   }
 

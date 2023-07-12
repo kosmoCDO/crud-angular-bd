@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth/services/auth.service';
 import { UserService } from './user/services/user.service';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { UserService } from './user/services/user.service';
   providers: [
     BrowserAnimationsModule,
     AuthService,
-    UserService
+    UserService,
   ],
   bootstrap: [AppComponent]
 })

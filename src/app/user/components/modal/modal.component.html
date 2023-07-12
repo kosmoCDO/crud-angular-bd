@@ -21,7 +21,14 @@
         <div>
             <mat-form-field>
                 <mat-label>Fecha de nacimiento</mat-label>
-                    <input matInput formControlName="FECHA_NACIMIENTO">
+                    <input 
+                    matInput 
+                    [matDatepicker]="picker"
+                    formControlName="FECHA_NACIMIENTO"/>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
                     <mat-error>{{ textErrorField('FECHA_NACIMIENTO') }}</mat-error>
                 </mat-form-field>
     
@@ -32,15 +39,24 @@
             </mat-form-field>
         </div>
         <div>
-            <mat-form-field>
+            <mat-form-field *ngIf="dataLoaded">
                 <mat-label>Cargo</mat-label>
-                <input matInput formControlName="CARGO"> 
+                <input 
+                    type="text" 
+                    matInput 
+                    formControlName="CARGO" 
+                    [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option *ngFor="let option of filtersItemsCargo | async " [value]="option">
+                        {{option.CARGO}}
+                    </mat-option>
+                    </mat-autocomplete>
                 <mat-error>{{ textErrorField('CARGO') }}</mat-error>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Password</mat-label>
-                <input matInput formControlName="PASSWORD"> 
+                <input matInput formControlName="PASSWORD" type="password" > 
                 <mat-error>{{ textErrorField('PASSWORD') }}</mat-error>
             </mat-form-field>
         </div>
@@ -50,6 +66,7 @@
                 type="submit" 
                 mat-raised-button 
                 color="primary"
+                [disabled]="myForm.invalid"
                 >
                 {{ data.event === 'new' ? 'Agregar' : 'Actualizar' }}
             </button>

@@ -21,6 +21,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
+import { CommonModule } from '@angular/common';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import {MatTableModule} from '@angular/material/table';
     ModalComponent,
   ],
     imports: [
+      CommonModule,
         UserRoutingModule,
         HttpClientModule,
         
@@ -46,7 +49,9 @@ import {MatTableModule} from '@angular/material/table';
         MatDatepickerModule,
         MatNativeDateModule,
         MatIconModule,
-        HttpClientModule
+        HttpClientModule,
+        MatDatepickerModule,
+        MatAutocompleteModule
     ],
     exports: [],
     providers: [

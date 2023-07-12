@@ -26,6 +26,12 @@ export class AuthService {
 
 
         /* Peticiones */
+
+    getPositionList(): Observable<any> {
+        return this.http.get<any>(`${this.baseUrl}/getPositionList`,
+        { headers: { "Content-Type": "application/json" }})
+    };
+
     newUser(data: User): Observable<any> {
         return this.http.post<string>(`${this.baseUrl}/newUser`, 
         data , { headers: {'Content-Type': 'application/json'} });

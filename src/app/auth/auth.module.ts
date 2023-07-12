@@ -4,8 +4,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AuthRoutingModule } from './auth-routing.module';
+import { AuthService } from './services/auth.service';
 
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 
@@ -15,9 +17,10 @@ import {  MatFormFieldModule  } from '@angular/material/form-field';
 import {  MatInputModule  } from '@angular/material/input';
 import {  MatButtonModule } from '@angular/material/button';
 import {  RouterModule } from '@angular/router';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import { AuthService } from './services/auth.service';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -39,8 +42,11 @@ import { AuthService } from './services/auth.service';
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
-    
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatAutocompleteModule,
+    MatSelectModule
   ],
   providers: [
     AuthService

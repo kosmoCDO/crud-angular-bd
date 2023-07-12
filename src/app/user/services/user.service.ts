@@ -19,16 +19,8 @@ export class UserService {
   //Peticiones
 
   public getUserList(): Observable<any> {
-  //   const cookie = this.cookie.get('access_token');
-  //   // console.log( cookie );
-  //   // const header = new HttpHeaders().set('Set-Cookie', `access_token=${cookie}`);
-
     return this.http.get<DataApi>(`${this.baseUrl}/getUserList`,
-    { 
-      // headers: { "Cookie":`access_token=${cookie.toString()}` },
-      withCredentials: true,
-    }
-    )
+    { headers: { "Content-Type": "application/json" }})
   }
 
   newUser(data: User): Observable<any> {

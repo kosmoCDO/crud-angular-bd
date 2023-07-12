@@ -3,3 +3,9 @@ export enum UserStatus {
     authenticated = 'authenticated',
     notAuthenticated = 'notAuthenticated'
 }
+
+
+export interface DataCargo {
+    ID_CARGO: string,
+    CARGO: string
+}
